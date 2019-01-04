@@ -1,0 +1,24 @@
+<table class="table table-bordered table-hover" *ngIf="employee">
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>{{employee.name}}</td>
+    </tr>
+    <tr>
+      <td>Age</td>
+      <td>{{employee.age}}</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td>{{employee.status}}</td>
+    </tr>
+    <tr>
+      <td>Created at</td>
+      <td>{{employee.createdAt | date: "dd/MM/yyyy"}}</td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-info" [routerLink]="['overview']">Overview</button>&nbsp;&nbsp;
+<button type="button" class="btn btn-success" [routerLink]="['project']">Project</button>&nbsp;&nbsp;
+<button type="button" class="btn btn-secondary" [routerLink]="['/employee']">Go back</button>
+<router-outlet></router-outlet>

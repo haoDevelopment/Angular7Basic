@@ -1,0 +1,9 @@
+<h2>{{title}}</h2>
+<p>
+  Child component name: {{name}}
+  <br>
+  <button [disabled]="voted" (click)= "vote(true)">Agree</button>
+  &nbsp;&nbsp;&nbsp;<button [disabled]="voted" (click)= "vote(false)">Disgree</button>
+  <br>
+  Result : {{voted}}
+</p>

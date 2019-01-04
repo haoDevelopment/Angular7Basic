@@ -1,0 +1,55 @@
+<h2>User form</h2>
+<form #userForm="ngForm" (ngSubmit)="onSubmitForm(userForm.value)">
+  <div class="form-group">
+    <label for="">Name</label>
+    <input type="text" class="form-control" minlength="6" maxlength="15" required #Name="ngModel" name="Name" ngModel>
+    <div class="label" *ngIf="Name.errors && (Name.dirty || Name.touched)">
+      <div class="alert alert-danger" [hidden]="!Name.errors.required">
+        Name is required.
+      </div>
+      <div class="alert alert-danger" [hidden]="!Name.errors.minlength">
+        Name must be at least 6 characters.
+      </div>
+      <div class="alert alert-danger" [hidden]="!Name.errors.maxlength">
+        Name cannot has more than 15 characters.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required type="text" class="form-control" #Email="ngModel" name="Email"
+      ngModel>
+    <div class="label" *ngIf="Email.errors && (Email.dirty || Email.touched)">
+      <div class="alert alert-danger" *ngIf="Email.value == ''">
+        Email is required.
+      </div>
+      <div class="alert alert-danger" *ngIf="Email.errors.pattern && Email.value != ''">
+        Email must be invalid fomat.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Street</label>
+    <input type="text" class="form-control" name="Street" ngModel>
+  </div>
+  <div class="form-group">
+    <label for="">City</label>
+    <select class="form-control" required name="City" ngModel>
+      <option [ngValue]="null">--Select city--</option>
+      <option *ngFor="let city of cities" (selected)="city.ID === 2" [value]="city.ID" required>{{city.Name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">Postal Code</label>
+    <input type="text" pattern="^[1-9][0-9]{4}$" required class="form-control" name="PostalCode" #PostalCode="ngModel" ngModel> {{PostalCode.className}}
+    <div class="label" *ngIf="PostalCode.errors && (PostalCode.dirty || PostalCode.touched)">
+      <div class="alert alert-danger" *ngIf="PostalCode.errors.pattern || PostalCode.value == ''">
+        Postal Code must be have 5 digits.
+      </div>
+    </div>
+  </div>
+  <!-- <div ngModelGroup="Address">
+    
+  </div> -->
+  <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+</form>

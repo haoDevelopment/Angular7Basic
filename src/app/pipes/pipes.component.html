@@ -1,0 +1,12 @@
+<p>
+  Pipes title: {{title | uppercase}}
+  Date: {{formatDate | date: 'fullDate'}}
+  Percent {{percentValue | percent}}
+</p>
+<div>
+  <!--output '26%'-->
+  <p>A: {{a | percent}}</p>
+
+  <!--output '0,134.950%'-->
+  <p>B: {{b | percent:'4.3-5'}}</p>
+</div>

@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "https://5c209feaf3e8d200133b6652.mockapi.io/api",
+        "secure": false,
+        "logLevel": "debug",
+        "pathRewrite": {
+            "^/api": "/https://5c209feaf3e8d200133b6652.mockapi.io/api"
+        }
+    }
+}

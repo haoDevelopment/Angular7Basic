@@ -1,0 +1,22 @@
+<h3>{{title}} Employee</h3>
+<form #f="ngForm" (ngSubmit)="Save(f.value)">
+  <table class="table table-bordered table-hover" *ngIf="employee">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td><input type="text" name="name" [(ngModel)]="employee.name"></td>
+        </tr>
+        <tr>
+          <td>Age</td>
+          <td><input type="number" name="age" [(ngModel)]="employee.age"></td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td><input type="checkbox" name="status" [(ngModel)]="employee.status"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" type="submit" class="btn btn-success">Save</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-secondary" [routerLink]="['/employee']">Go back</button>
+</form>
+
